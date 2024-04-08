@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo de texto</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .choice-btn {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .choice-btn:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Adventure Game</h1>
+      <img
+        src="https://img.odcdn.com.br/wp-content/uploads/2024/03/floresta-mais-velha-do-mundo-1.png"
+        alt="Floresta"
+        style="max-width: 100%"
+      />
+      <p id="story">Você está em uma floresta escura. O que você faz?</p>
+      <div id="buttons-container">
+        <button class="choice-btn" onclick="makeChoice(1)">
+          Explorar a floresta
+        </button>
+        <button class="choice-btn" onclick="makeChoice(2)">Ficar parado</button>
+      </div>
+    </div>
+
+    <script>
+      function makeChoice(choice) {
+        var storyElement = document.getElementById("story");
+        var buttonsContainer = document.getElementById("buttons-container");
+
+    
+        buttonsContainer.innerHTML = "";
+
+        if (choice === 1) {
+          storyElement.textContent =
+            "Você encontra um caminho sinuoso. Deseja seguir em frente ou voltar?";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(3)'>Seguir em frente</button>";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(4)'>Voltar</button>";
+        } else if (choice === 2) {
+          storyElement.textContent =
+            "Você fica parado e ouve ruídos na floresta. O que você faz?";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(5)'>Investigar os ruídos</button>";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(6)'>Ficar onde está</button>";
+        } else if (choice === 3) {
+          storyElement.textContent =
+            "Você segue em frente e encontra uma cabana abandonada. O que você faz?";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(7)'>Entrar na cabana</button>";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(8)'>Ignorar a cabana e continuar</button>";
+        } else if (choice === 4) {
+          storyElement.textContent =
+            "Você volta e encontra um caminho diferente. O que você faz?";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(9)'>Seguir o novo caminho</button>";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(10)'>Voltar para onde estava</button>";
+        } else if (choice === 5) {
+          storyElement.textContent =
+            "Você investiga os ruídos e encontra um animal selvagem. O que você faz?";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(11)'>Tentar se aproximar do animal</button>";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(12)'>Fugir do animal</button>";
+        } else if (choice === 6) {
+          storyElement.textContent =
+            "Você decide ficar onde está. O que você faz em seguida?";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(13)'>Continuar ouvindo os ruídos</button>";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(14)'>Tentar identificar a origem dos ruídos</button>";
+        } else if (choice === 7) {
+          storyElement.textContent =
+            "Você entra na cabana e encontra um baú misterioso. O que você faz?";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(19)'>Abrir o baú</button>";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(20)'>Ficar onde está</button>";
+        } else if (choice === 8) {
+          storyElement.textContent =
+            "Você ignora a cabana e continua pela floresta. Fim da aventura.";
+        } else if (choice === 9) {
+          storyElement.textContent =
+            "Você volta e encontra um caminho diferente. O que você faz?";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(10)'>Voltar para onde estava</button>";
+        } else if (choice === 10) {
+          storyElement.textContent =
+            "Você volta para onde estava. Fim da aventura.";
+        } else if (choice === 11) {
+          storyElement.textContent =
+            "Você tenta se aproximar do animal, mas ele parece hostil. O que você faz?";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(15)'>Continuar se aproximando</button>";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(16)'>Recuar lentamente</button>";
+        } else if (choice === 12) {
+          storyElement.textContent =
+            "Você decide fugir do animal. O que você faz em seguida?";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(17)'>Correr o mais rápido possível</button>";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(18)'>Procurar um lugar para se esconder</button>";
+        } else if (choice === 13) {
+          storyElement.textContent =
+            "Você continua ouvindo os ruídos. De repente, o animal aparece e ataca você!";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(19)'>Recomeçar</button>";
+        } else if (choice === 14) {
+          storyElement.textContent =
+            "Você tenta identificar a origem dos ruídos, mas não encontra nada de anormal.";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(19)'>Recomeçar</button>";
+        } else if (choice === 15) {
+          storyElement.textContent =
+            "Você continua se aproximando do animal e ele ataca você!";
+          buttonsContainer.innerHTML +=
+            "<button class='choice-btn' onclick='makeChoice(19)'>Recomeçar</button>";
+        } else if (choice === 16) {
+          storyElement.textContent =
+            "Você recua lentamente e o animal não parece se importar. Fim da aventura.";
+        } else if (choice === 17) {
+          storyElement.textContent =
+            "Você corre o mais rápido possível e escapa do animal. Fim da aventura.";
+        } else if (choice === 18) {
+          storyElement.textContent =
+            "Você encontra um lugar para se esconder, mas é descoberto pelo animal. Fim da aventura.";
+        } else if (choice === 19) {
+          location.reload(); // Recarrega a página para recomeçar
+        } else if (choice === 20) {
+          storyElement.textContent =
+            "Você decide não abrir o baú e continuar. Fim da aventura.";
+        }
+      }
+    </script>
+  </body>
+</html>
